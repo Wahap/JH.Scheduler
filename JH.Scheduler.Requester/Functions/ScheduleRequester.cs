@@ -1,21 +1,25 @@
 using System;
 using JH.Scheduler.Requester.Common;
+using JH.Scheduler.Requester.Services.Interfaces;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
 
 namespace JH.Scheduler.Requester
 {
-    public class Function1
+    public class ScheduleRequester
     {
-        [FunctionName("Function1")]
-        public void Run([TimerTrigger("0/1 * * * * *")] TimerInfo myTimer, 
-            ExecutionContext context,
-            ILogger logger,
-            [Queue(AppConstants.MonitorSubRedditQueueName)] ICollector<SyncRefDataTask> dataSyncQueue)
+        private readonly ILogger _logger;
+        private readonly ISchedulerServices _scheduler;
+        public ScheduleRequester(ISchedulerServices scheduler)
         {
-            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
-            log.LogInformation($"WAEERRRRR");
+            this._scheduler = scheduler;
+        }
+        [FunctionName("ScheduleRequester")]
+        public void Run([TimerTrigger("0/30 * * * * *")] TimerInfo myTimer, ILogger log)
+        {
+            log.LogInformation($"ScheduleRequester Timer trigger function executed at: {DateTime.Now}");
+            this._scheduler.CreateRequest(AppConstants.MonitorSubRedditQueueName);
+            log.LogInformation($"ScheduleRequester Timer trigger function finished at: {DateTime.Now}");
 
         }
     }
