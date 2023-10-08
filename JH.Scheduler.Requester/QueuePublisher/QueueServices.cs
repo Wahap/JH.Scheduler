@@ -10,7 +10,7 @@ namespace JH.Scheduler.Requester.Queue
 {
     public class QueueServices : IQueueServices
     {
-        private readonly ILogger<QueueServices> Logger;
+        private readonly ILogger<QueueServices> _logger;
         private ServiceBusClient? Client;
         private ServiceBusSender? Sender;
         private readonly IConfiguration _configuration;
@@ -18,7 +18,7 @@ namespace JH.Scheduler.Requester.Queue
         public QueueServices(IConfiguration configuration, ILogger<QueueServices> logger)
         {
             this._configuration = configuration;
-            this.Logger = logger;
+            this._logger = logger;
         }
         public async Task<string> SendMessage(string queueName, string message)
         {
@@ -38,7 +38,7 @@ namespace JH.Scheduler.Requester.Queue
             }
             catch (Exception ex)
             {
-                Logger.LogError($"There was an error sending the message to the queue", queueName, ex.Message, ex.ToString());
+                _logger.LogError($"There was an error sending the message to the queue", queueName, ex.Message, ex.ToString());
                 throw;
             }
         }
