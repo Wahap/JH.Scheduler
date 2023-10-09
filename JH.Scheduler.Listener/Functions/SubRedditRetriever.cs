@@ -20,7 +20,7 @@ namespace JH.Scheduler.Listener
 
         }
 
-        [FunctionName("SubRedditListener")]
+        [FunctionName("SubRedditRetriever")]
         public async Task RunAsync([ServiceBusTrigger(AppConstants.MonitorSubRedditQueueName, Connection = "JackHenryServiceBusConnectionString")] string subRedditName, ILogger log)
         {
 

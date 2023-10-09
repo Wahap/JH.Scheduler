@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JH.Monitor.Requester", "JH.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JH.Monitor.Retriever", "JH.Scheduler.Listener\JH.Monitor.Retriever.csproj", "{9D0B6CF1-6FE1-4EB3-BEF5-F7D672D26777}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JH.Monitor.SubOperations", "JH.Monitor.SubOperations\JH.Monitor.SubOperations.csproj", "{A838A0B7-D904-4C21-801D-743315453C34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JH.Monitor.SubRedditOperations", "JH.Monitor.SubOperations\JH.Monitor.SubRedditOperations.csproj", "{A838A0B7-D904-4C21-801D-743315453C34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

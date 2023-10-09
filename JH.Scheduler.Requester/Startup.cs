@@ -18,7 +18,6 @@ namespace JH.Scheduler.Requester
             builder.Services.AddSingleton<ISchedulerServices, SchedulerServices>();
             builder.Services.AddLogging();
 
-
         }
     }
 }

@@ -18,7 +18,7 @@ namespace JH.Scheduler.Requester
         public void Run([TimerTrigger("0/30 * * * * *")] TimerInfo myTimer, ILogger log)
         {
             log.LogInformation($"ScheduleRequester Timer trigger function executed at: {DateTime.Now}");
-            this._scheduler.CreateRequest(AppConstants.MonitorSubRedditQueueName);
+            this._scheduler.CreateRequest(AppConstants.MonitorSubRedditQueue);
             log.LogInformation($"ScheduleRequester Timer trigger function finished at: {DateTime.Now}");
 
         }
