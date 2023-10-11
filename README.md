@@ -3,7 +3,8 @@
 ![demo](https://github.com/Wahap/JH.Scheduler/assets/9551651/4d3ccbd0-78dc-4190-8109-c5be778e9746)
 
 **Architecture **
-![image](https://github.com/Wahap/JH.Scheduler/assets/9551651/bad59432-bd19-4fb9-b57f-20d9cd299d88)
+![image](https://github.com/Wahap/JH.Scheduler/assets/9551651/c8043604-83da-43c8-a65c-1d7b2657f5fa)
+
 
 
 https://drive.google.com/file/d/159nMFZU8PFL248Oh0kRVrsO5VhW48GFC/view?usp=sharing
