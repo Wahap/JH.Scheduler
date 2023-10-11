@@ -11,29 +11,24 @@ namespace JH.Scheduler.Listener
 {
     public class SubRedditRetriever
     {
-        private readonly IConfiguration _configuration;
         private readonly ISubRedditService _subRedditService;
         public SubRedditRetriever(IConfiguration configuration, ISubRedditService subRedditService)
         {
-            this._configuration = configuration ?? throw new ArgumentNullException(nameof(configuration)); 
             this._subRedditService = subRedditService ?? throw new ArgumentNullException(nameof(subRedditService));
-
         }
 
         [FunctionName("SubRedditRetriever")]
         public async Task RunAsync([ServiceBusTrigger(AppConstants.MonitorSubRedditQueueName, Connection = "JackHenryServiceBusConnectionString")] string subRedditName, ILogger log)
         {
-
             await this._subRedditService.GetSubRedditPosts(subRedditName);
 
             log.LogInformation($"C# Queue trigger function processed: {subRedditName}");
         }
 
-        [FunctionName("SubRedditRetriever1")]
-        public async Task RunAsync1([ServiceBusTrigger(AppConstants.MonitorSubRedditQueueName + "/$deadletterqueue", Connection = "JackHenryServiceBusConnectionString")] string subRedditName, ILogger log)
+        [FunctionName("SubRedditRetrieverDeadLetter")]
+        public async Task RunAsyncDeadLetter([ServiceBusTrigger(AppConstants.MonitorSubRedditQueueName + "/$deadletterqueue", Connection = "JackHenryServiceBusConnectionString")] string subRedditName, ILogger log)
         {
-
-            log.LogInformation($"failed: {subRedditName} !!!");
+            log.LogInformation($"SubRedditRetrieverDeadLetter {subRedditName}  failed: !!!");
         }
     }
 }

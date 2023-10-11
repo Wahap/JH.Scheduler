@@ -1,0 +1,9 @@
+{
+    "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "removed",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "SubRedditName": "AskReddit",
+    "JackHenryServiceBusConnectionString": "Endpoint=sb://jackhenry.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Tkne+SKJvkz/v/n0WuVv33KuPSJ2pZAFc+ASbGnDJSI="
+  }
+}

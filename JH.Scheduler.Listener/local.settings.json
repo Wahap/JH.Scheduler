@@ -1,0 +1,12 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "removed",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "JackHenryServiceBusConnectionString": "Endpoint=sb://jackhenry.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Tkne+SKJvkz/v/n0WuVv33KuPSJ2pZAFc+ASbGnDJSI=",
+    "RedditAppId": "iiXNv-h0mUT4VTQwmp_2OA",
+    "RedditRefreshToken": "283463062239-z24FeZWAWKcoThjtwBfU7R0sr-qDPw",
+    "RedditAppSecret": "GDQh5gyNMfpX78DeohI8rjZ-HV8Z2A",
+    "RedditSubsTopic": "redditsubstopic"
+  }
+}

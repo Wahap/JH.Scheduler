@@ -12,7 +12,6 @@ namespace JH.Scheduler.Requester
 {
     public class ScheduleRequester
     {
-        private readonly ILogger _logger;
         private readonly ISchedulerServices _scheduler;
         public ScheduleRequester(ISchedulerServices scheduler)
         {
@@ -29,17 +28,14 @@ namespace JH.Scheduler.Requester
 
 
         [FunctionName("HttpScheduleRequester")]
-        public async Task<IActionResult> HttpScheduleRequesterRun(
-    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
-    ILogger log)
+        public async Task<IActionResult> HttpScheduleRequesterRun([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req, ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
             string subRedditName = req.Query["subRedditName"];
+            log.LogInformation("HttpScheduleRequester ran for " + subRedditName);
 
             return new OkObjectResult(await _scheduler.CreateRequest(AppConstants.MonitorSubRedditQueue, subRedditName));
         }
-
-
     }
 }
