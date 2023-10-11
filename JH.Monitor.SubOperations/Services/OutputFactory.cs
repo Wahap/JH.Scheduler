@@ -2,7 +2,7 @@
 
 namespace JH.Monitor.SubRedditOperations.Services.Interfaces
 {
-    internal class OutputFactory : IOutputFactory
+    public class OutputFactory : IOutputFactory
     {
         public IOutputGenerator GetOutputGenerator(GeneratorType type)
         {

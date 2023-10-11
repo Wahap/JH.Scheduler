@@ -2,6 +2,10 @@
 {
     public class RedditPost
     {
+        public RedditPost()
+        {
+        }
+
         public RedditPost(string title, string author, int upVoteCount)
         {
             Title = title;

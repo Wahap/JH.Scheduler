@@ -28,5 +28,12 @@ namespace JH.Scheduler.Listener
 
             log.LogInformation($"C# Queue trigger function processed: {subRedditName}");
         }
+
+        [FunctionName("SubRedditRetriever1")]
+        public async Task RunAsync1([ServiceBusTrigger(AppConstants.MonitorSubRedditQueueName + "/$deadletterqueue", Connection = "JackHenryServiceBusConnectionString")] string subRedditName, ILogger log)
+        {
+
+            log.LogInformation($"failed: {subRedditName} !!!");
+        }
     }
 }

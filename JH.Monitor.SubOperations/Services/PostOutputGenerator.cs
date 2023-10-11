@@ -6,10 +6,15 @@ using System.Text;
 
 namespace JH.Monitor.SubRedditOperations.Services.Interfaces
 {
-    internal class PostOutputGenerator : IOutputGenerator
+    public class PostOutputGenerator : IOutputGenerator
     {
         public string GetOutput(List<RedditPost> posts)
         {
+
+            if (posts.Count()==0)
+            {
+                return "";
+            }
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine();
@@ -22,11 +27,11 @@ namespace JH.Monitor.SubRedditOperations.Services.Interfaces
                 RedditPost post = posts[counter];
                 sb.Append($"Post #{counter + 1}");
                 sb.AppendLine();
-                sb.Append($"Title {post.Title}");
+                sb.Append($"Title: {post.Title}");
                 sb.AppendLine();
-                sb.Append($"Author {post.Author}");
+                sb.Append($"Author: {post.Author}");
                 sb.AppendLine();
-                sb.Append($"with a up vote count of {post.UpVoteCount}");
+                sb.Append($"UpVoteCount: {post.UpVoteCount}");
                 sb.AppendLine();
             }
             sb.AppendLine();

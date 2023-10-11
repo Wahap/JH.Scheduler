@@ -31,15 +31,17 @@ namespace JH.Monitor.Retriever.Services
             this._topicServices = topicServices ?? throw new ArgumentNullException(nameof(topicServices));
             this._logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
-        public async Task GetSubRedditPosts(string subRedditName)
+        public async Task<string> GetSubRedditPosts(string subRedditName)
         {
             var redditClient = this._redditClientWrapper.GetClient();
             Subreddit subReddit = redditClient.Subreddit(subRedditName).About();
 
-            var topSubs = subReddit.Posts.Top.Take(TopPostResult).Select( post => new RedditPost(post.Title,post.Author, post.UpVotes));
-            var topSubsJson =  JsonConvert.SerializeObject(topSubs);
-            await _topicServices.SendMessage(_config.GetValue<string>(ConfigurationKeys.RedditSubsTopic), topSubsJson);
+            var topSubs = subReddit.Posts.Top.Take(TopPostResult).Select(post => new RedditPost(post.Title, post.Author, post.UpVotes));
+            var topSubsJson = JsonConvert.SerializeObject(topSubs);
+            string result = await _topicServices.SendMessage(_config.GetValue<string>(ConfigurationKeys.RedditSubsTopic), topSubsJson);
             _logger.LogInformation($"GetSubRedditPosts processed with : {topSubs.Count()} subs");
+
+            return result;
 
         }
 

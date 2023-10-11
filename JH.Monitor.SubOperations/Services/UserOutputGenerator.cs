@@ -12,6 +12,10 @@ namespace JH.Monitor.SubRedditOperations.Services
     {
         public string GetOutput(List<RedditPost> posts)
         {
+            if (posts.Count() == 0)
+            {
+                return "";
+            }
 
             var users = posts.GroupBy(p => p.Author)
                .Select(group => new

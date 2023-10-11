@@ -4,6 +4,6 @@ namespace JH.Monitor.Retriever.Services.Interfaces
 {
     public interface ISubRedditService
     {
-        Task GetSubRedditPosts(string subRedditName);
+        Task<string> GetSubRedditPosts(string subRedditName);
     }
 }
